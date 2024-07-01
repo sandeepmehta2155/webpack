@@ -1,4 +1,8 @@
+@font-face {
+    font-family: 'MyFont' ;
+    src: url(./NBInternationalProBoo.ttf);
+}
 .hello {
     color: red;
-    background: url("./icon.jpeg");
+    font-family: 'MyFont';
 }  
