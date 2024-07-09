@@ -15,8 +15,13 @@ module.exports = {
     filename: "[name].bundle.js",
     path: path.resolve(__dirname, "dist"),
     clean: true,
+    publicPath: '/',
   },
   mode: "development",
+  devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+  },
   module: {
     rules: [
       { test: /\.css$/i, use: ["style-loader", "css-loader"] },
@@ -26,5 +31,8 @@ module.exports = {
       //   type: "asset/resource",
       // },
     ],
+  },
+  optimization: {
+    runtimeChunk: 'single',
   },
 };
