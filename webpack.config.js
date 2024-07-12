@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     index: "./src/index.js",
-    print: "./src/print.js",
+    anotherModule: "./src/another-module.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -18,9 +18,13 @@ module.exports = {
     publicPath: '/',
   },
   mode: "development",
-  devtool: 'inline-source-map',
   devServer: {
     static: './dist',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   module: {
     rules: [
@@ -31,8 +35,5 @@ module.exports = {
       //   type: "asset/resource",
       // },
     ],
-  },
-  optimization: {
-    runtimeChunk: 'single',
   },
 };
